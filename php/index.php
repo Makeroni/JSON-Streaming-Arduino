@@ -10,12 +10,15 @@ header('Expires: Mon, 01 Jan 1996 00:00:00 GMT');
 header('Content-type: application/json');
 
 $a_json_results = array();
-array_push($a_json_results,array('control_id' => '3', 'control_value' => rand(0,100)));
-array_push($a_json_results,array('control_id' => '5', 'control_value' => rand(0,100)));
-array_push($a_json_results,array('control_id' => '6', 'control_value' => rand(0,100)));
 
+for($x=0; $x<=13; $x++)
+{
+	array_push($a_json_results, array('control_id' => $x, 'control_value' => rand(0,100)));
+}
 $msg_out_json = "";
-$msg_out_json = json_encode(array("data" => $a_json_results),JSON_PRETTY_PRINT);
+//$msg_out_json = json_encode($a_json_results);
+$msg_out_json = json_encode(array("data" => $a_json_results));
+
 echo $msg_out_json;
 
 ?>
