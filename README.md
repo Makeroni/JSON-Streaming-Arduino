@@ -1,5 +1,5 @@
-RGB led using Arduino and JSON remote streaming
-===============================================
+RGB led control using Arduino and JSON remote streaming
+=======================================================
 
 
 Emitter
