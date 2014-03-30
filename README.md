@@ -23,14 +23,15 @@ Field id represents the analog output to control with values ranging from 0 to 2
 RGB controller
 --------------
 
-Arduino program that reads the remote JSON stream and controls an RGB led using three PWM signals. Data is also pass through serial port for later representation using Processing. Arduino was able to receive up to 10 rgb values per second.
+Arduino program that reads the remote JSON stream and controls an RGB led using three PWM signals. Data is also pass through serial port for later representation using Processing.
 
 
 Plotter
 -------
 
-Processing program that reads serial data from Arduino and plots.
+Processing program that reads serial data from Arduino and plots some charts.
 
+The full system was successfully tested streaming 10 rgb values (30 numbers) per second.
 
 Copyright and license
 ---------------------
