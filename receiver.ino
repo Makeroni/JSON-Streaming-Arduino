@@ -67,7 +67,7 @@ void loop()
   // from the server, read them and print them:
   while (client.available()) {
     buffer[i] = client.read();
-    // Detect enf of line
+    // Detect end of line
     if( buffer[i] == '\n' )
     {
       // Check is a valid message
