@@ -19,7 +19,7 @@ EthernetClient client;
 
 void setup() {
 
-  // RGB led pins
+  // RGB led pinout
   pinMode(3,OUTPUT);
   pinMode(5,OUTPUT);
   pinMode(6,OUTPUT);
@@ -70,7 +70,7 @@ void loop()
     // Detect end of line
     if( buffer[i] == '\n' )
     {
-      // Check is a valid message
+      // Check message integrity
       if( i > 26 && buffer[i-1] == ',' )
       {
         // Read id
@@ -81,7 +81,7 @@ void loop()
         buffer[27] = '\0';
         value = atoi(buffer+23);
 
-        // Set valid pin
+        // Set valid pins
         if( id==3 || id==5 || id==6 )
         {
           a_color[id]=value;
