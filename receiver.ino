@@ -7,7 +7,7 @@ byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 // if you don't want to use DNS (and reduce your sketch size)
 // use the numeric IP instead of the name for the server:
-char server[] = "siminelaki.org";    // name address for the server (using DNS)
+char server[] = "server.com";    // name address for the server (using DNS)
 
 // Set the static IP address to use if the DHCP fails to assign
 IPAddress ip(192,168,0,178);
@@ -19,6 +19,7 @@ EthernetClient client;
 
 void setup() {
 
+  // RGB led pins
   pinMode(3,OUTPUT);
   pinMode(5,OUTPUT);
   pinMode(6,OUTPUT);
@@ -44,8 +45,8 @@ void setup() {
   if (client.connect(server, 80)) {
     //Serial.println("connected");
     // Make a HTTP request:
-    client.println("GET /noname/arduino-test.php HTTP/1.1");
-    client.println("Host: siminelaki.org");
+    client.println("GET /path/to/emitter.php HTTP/1.1");
+    client.println("Host: server.com");
     client.println("Connection: close");
     client.println();
   }
@@ -66,24 +67,28 @@ void loop()
   // from the server, read them and print them:
   while (client.available()) {
     buffer[i] = client.read();
+    // Detect enf of line
     if( buffer[i] == '\n' )
     {
-      buffer[i] = '\0';
-      if( i > 0 && buffer[i-1] == ',' )
+      // Check is a valid message
+      if( i > 26 && buffer[i-1] == ',' )
       {
+        // Read id
         buffer[12] = '\0';
         id = atoi(buffer+8);
 
+        // Read value
         buffer[27] = '\0';
         value = atoi(buffer+23);
 
-
+        // Set valid pin
         if( id==3 || id==5 || id==6 )
         {
           a_color[id]=value;
           analogWrite(id, value);
         }
 
+        // Pass data to serial
         Serial.print(a_color[3]);
         Serial.print(",");   
         Serial.print(a_color[5]);
@@ -93,7 +98,6 @@ void loop()
       i = -1;
     }
     i++;
-    //Serial.print(c);
   }
 
   // if the server's disconnected, stop the client:
