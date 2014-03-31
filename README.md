@@ -31,7 +31,7 @@ Plotter
 
 Processing program that reads serial data from Arduino and plots some charts.
 
-The full system was successfully tested streaming 10 rgb values (30 numbers) per second.
+The system was successfully tested streaming 10 rgb values (30 numbers) per second.
 
 Copyright and license
 ---------------------
