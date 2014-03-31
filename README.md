@@ -33,6 +33,12 @@ Processing program that reads serial data from Arduino and plots some charts.
 
 The system was successfully tested streaming 10 rgb values (30 numbers) per second.
 
+
+Any problems?
+-------------
+Feel free to [write an issue](https://github.com/Makeroni/JSON-Streaming-Arduino/issues) if you have any questions or problems.
+
+
 Copyright and license
 ---------------------
 
