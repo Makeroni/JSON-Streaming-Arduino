@@ -20,10 +20,10 @@ PHP script that streams JSON elements:
 Field id represents the analog output to control with values ranging from 0 to 255. JSON elemements have fixed size for easier processing in Arduino.
 
 
-RGB controller
+Receiver
 --------------
 
-Arduino program that reads the remote JSON stream and controls an RGB led using three PWM signals. Data is also sent through serial port for later representation using Processing.
+Arduino program that reads the JSON stream and controls an RGB led using three PWM signals. Data is also sent through serial port for later representation using Processing.
 
 
 Plotter
